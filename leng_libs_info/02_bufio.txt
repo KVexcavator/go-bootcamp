@@ -1,0 +1,3 @@
+ввод\вывод с терминала
+
+bufio.NewReader(os.Stdin)

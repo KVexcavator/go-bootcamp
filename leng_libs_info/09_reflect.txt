@@ -1,0 +1,4 @@
+типы данных
+
+
+reflect.TypeOf(float64(myInt))

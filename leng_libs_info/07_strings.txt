@@ -1,0 +1,6 @@
+преобразование строк
+
+
+ReadString('\n')
+TrimSpace(input)
+NewReplacer("#", "o")

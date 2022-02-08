@@ -1,0 +1,6 @@
+математика
+
+"math/rand"
+  rand.Intn(100)
+  для возвращения разных рандомов
+  rand.Seed(seconds)
