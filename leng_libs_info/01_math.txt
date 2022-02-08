@@ -1,6 +1,12 @@
 математика
 
+округляет до целого вниз
+math.Floor(number)
+квадратный корень
+math.Sqrt(number)
+
 "math/rand"
+целое рандомное от 0 до 99
   rand.Intn(100)
   для возвращения разных рандомов
   rand.Seed(seconds)

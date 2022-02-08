@@ -9,6 +9,8 @@ fmt.Printf("About one-third: %0.2f\n", 1.0/3.0)
 возвращает но не выводит
 resultString := fmt.Sprintf("About one-third: %0.2f\n", 1.0/3.0)
 fmt.Printf(resultString)
+форматирование значения ошибки
+err := fmt.Errorf("a height of %0.2f is invalid", -2.33333)
 
 %0.2f глагол форматирования
 0.2 ширина значений
