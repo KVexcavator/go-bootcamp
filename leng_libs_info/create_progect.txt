@@ -1,0 +1,46 @@
+Сборка и запуск простой проги на Go
+
+сoздать и инициализировать проект:
+$ mkdir hello
+$ cd hello
+$ go mod init 401_hello
+
+создать файл hello.go с main:
+package main
+import (
+	....
+	"401_hello/greeting"
+)
+...
+
+создать файл с пакетом greeting:
+401_hello/greeting/greeting.go
+package greeting
+...
+$ cd 401_hello/greeting
+$ go build
+
+$ cd ..
+$ go mod init 401_hello
+$ go mod tidy
+$ go run hello.go
+
+
+? добавить в путь и вызвать
+$ export PATH=$PATH:$(dirname $(go list -f '{{.Target}}' .))
+$ hello
+
+
+--------------------------------------------------
+
+
+Импорт пакетов из удаленных модулей:
+...
+import (
+  ....
+  "github.com/google/go-cmp/cmp"
+)
+....
+$ go mod tidy
+$ go install 401_hello
+$ hello
