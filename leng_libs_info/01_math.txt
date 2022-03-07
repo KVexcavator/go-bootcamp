@@ -4,6 +4,8 @@
 math.Floor(number)
 квадратный корень
 math.Sqrt(number)
+отрицательная бесконечность
+math.Inf(-1)
 
 "math/rand"
 целое рандомное от 0 до 99

@@ -1,3 +1,5 @@
 системные команды
 
 os.Stat("readme.txt")
+
+os.Args
