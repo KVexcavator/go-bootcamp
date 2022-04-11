@@ -1,0 +1,6 @@
+unicode
+
+unicode/utf8 - пакет для подсчета количества рун в строке
+if utf8.RuneCountInString(title) > 30 {
+  return errors.New("invalid title")
+}

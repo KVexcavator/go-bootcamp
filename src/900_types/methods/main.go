@@ -6,7 +6,7 @@ type Liters float64
 type Milliliters float64
 type Gallons float64
 
-// одиинаковые названия для разных типов, тетоды принадлежат разным типам
+// одиинаковые названия для разных типов, методы принадлежат разным типам
 func (l Liters) ToGallons() Gallons {
 	return Gallons(l * 0.264)
 }
