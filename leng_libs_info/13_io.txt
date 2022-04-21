@@ -1,0 +1,2 @@
+Пакет io/ioutil включает функцию ReadDir, предназначенную для чтения содержимого каталога
+files, err := ioutil.ReadDir("my_directory")
