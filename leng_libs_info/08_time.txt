@@ -5,3 +5,5 @@ var now time.Time = time.Now()
 var year int = now.Year()
 возвращает целое кол-во секунд с начала отчета 1970
 time.Now().Unix()
+
+time.Sleep(time.Second) приостановить выполнение программы на секунду
