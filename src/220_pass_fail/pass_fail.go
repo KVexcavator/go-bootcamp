@@ -19,7 +19,7 @@ func main() {
 	}
 
 	input = strings.TrimSpace(input)
-	grade, err := strconv.ParseFloat(input, 64) // 64 всегда передавать и н епариться
+	grade, err := strconv.ParseFloat(input, 64) // 64 всегда передавать и не париться
 	if err != nil {
 		log.Fatal(err)
 	}

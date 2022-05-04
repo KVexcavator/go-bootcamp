@@ -6,6 +6,8 @@ http.ListenAndServe (хост:порт, nil) запускает сервер
 с использованием функций, заданных при помощи HandleFunc.
 http.ResponseWriter используется для записи данных в ответ браузера
 http.Request  запрос браузера
+перенаправить и возвратить статус
+http.Redirect(writer, request, "/guestbook", http.StatusFound)
 
 
 URL-адрес нужного сайта передается функции http.Get. Она возвращает объект http.Response, а также любые обнаруженные ошибки.

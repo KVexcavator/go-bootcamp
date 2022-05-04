@@ -1,6 +1,6 @@
 package main
 
-import "greeting" // /opt/go/src/greeting
+import "401_hello/greeting" // /opt/go/src/greeting
 
 func main() {
 	greeting.Hello()
