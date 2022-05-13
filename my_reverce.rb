@@ -1,8 +1,8 @@
 class Array
-  def my_reverce
+  def my_reverse
     res,i,l = [],-1,size
     while l >= 1
-      res << self[i]
+      res << [i]
       l -= 1
       i -= 1
     end
@@ -10,5 +10,4 @@ class Array
   end
 end
 
-c = ["a","b","c"].my_reverce
-p c
+p ["a","b","c"].my_reverse

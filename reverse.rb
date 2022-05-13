@@ -1,14 +1,10 @@
 # Без использования стандартных функций, написать функцию reverse, которая принимает массив и возвращает массив в обратном порядке
 
 class Array
-
   def reverse
-    result = []
-    index = 0
-    arr_lenght = self.length
-
-    while index < arr_lenght do
-      result << self.pop
+    result, index, arr_length = [],0,length
+    while index < arr_length do
+      result << pop
       index += 1
     end
     result
