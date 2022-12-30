@@ -15,3 +15,40 @@ URL-адрес нужного сайта передается функции htt
 страницы.
 Body поддерживает интерфейс ReadCloser уровня пакета, это означает, что оно содержит
 метод Read (для чтения данных страницы) и метод Close для освобождения сетевого подключения при завершении работы.
+
+Этот пример демонстрирует вывод тела простого HTTP-запроса GET:
+=================================================
+package main
+import (
+  "fmt"
+  "io/ioutil"
+  "net/http"
+  )
+func main() {
+  // Создание HTTP-запроса GET
+  resp, _ := http.Get("http://example.com/")
+  // Чтение тела ответа
+  body, _ := ioutil.ReadAll(resp.Body)
+  // Вывод тела в виде строки
+  fmt.Println(string(body))
+  // акрытие соединения
+  resp.Body.Close()З
+}
+==================================================
+Пример Вывод Hello World через веб-сервер:
+----------
+package main
+import (
+    "fmt"
+    "net/http"
+  )
+// Обработка HTTP-запроса
+func hello(res http.ResponseWriter, req *http.Request) {
+  fmt.Fprint(res, "Hello, my name is Inigo Montoya")
+}
+// Основная логика приложения
+func main() {
+  http.HandleFunc("/", hello)
+  http.ListenAndServe("localhost:4000", nil)
+}
+=======================================

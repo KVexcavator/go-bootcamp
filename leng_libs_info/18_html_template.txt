@@ -1,5 +1,7 @@
+Пакет html имеет дело с экранированной и неэкранированной HTML-разметкой, а пакет html/template предназначен для создания многократно используемых HTML-шаблонов.
+
 html/template загружает разметку HTML из файла
-функции template.ParseFiles передаёсяимя загружаемого файла .html, вернет указатель на значение Template и, возможно, значение ошибки
+функции template.ParseFiles передаёся имя загружаемого файла .html, вернет указатель на значение Template и, возможно, значение ошибки
 html, err := template.ParseFiles("view.html")
 сoдержимое шаблона записывается в ResponseWriter
 err = html.Execute(writer, nil)
