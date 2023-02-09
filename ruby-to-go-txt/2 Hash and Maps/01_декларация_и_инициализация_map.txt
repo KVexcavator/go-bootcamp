@@ -22,5 +22,32 @@ func main() {
 }
 ----------------------------------------
 Инициализация литеральным присвоением типа(одновремено декларировать и инициализировать)
+var variable = map[keyType]valueType{keyName: Value}
+println(variable[keyName]) // Value
 ----
+package main
+import (
+	"fmt"
+)
+
+func main() {
+	var car = map[string]string{"Tesla": "Model 3"}
+	fmt.Println(car["Tesla"])
+}
+----
+или назначить переменную позже:
+variable := map[keyType]valueType{}
+variable[keyName] = Value
+println(variable[keyName]) // Value
+----
+package main
+import (
+	"fmt"
+)
+
+func main() {
+	car := map[string]string{}
+	car["Tesla"] = "Model 3"
+	fmt.Println(car["Tesla"])
+}
 ----

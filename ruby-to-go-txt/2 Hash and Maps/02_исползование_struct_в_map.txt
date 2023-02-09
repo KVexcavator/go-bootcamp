@@ -1,0 +1,54 @@
+сначала объявляем структуру через make(map[string]produce), затем мы назначаем структуру ключам карты
+----
+package main
+import "fmt"
+
+type produce struct {
+  flavour string
+  kind string
+}
+
+func main() {
+  var basket map[string]produce
+  basket = make(map[string]produce)
+  basket["apple"] = produce{
+    flavour: `It's a little sour and bitter, but mostly sweet, not at all salty, very juicy in general.`,
+    kind: "fruit",
+  }
+
+  basket["kale"] = produce{
+    flavour: `It boasts deep, earthy flavors that can range from rich and meaty to herbaceous and slightly bitter.`,
+    kind: "veggies",
+  }
+
+  for key, value := range basket {
+    fmt.Printf(`Name: %s\n Kind: %s\n Flavour: %s\n\n`, key, value.kind, value.flavour)
+  }
+}
+===============================================
+сначала создайте и инициализируйте корзину карт и назначьте ее содержимое одним выражением
+---
+package main
+import "fmt"
+
+type produce struct {
+  flavour string
+  kind string
+}
+
+func main() {
+  basket := map[string]produce{
+    "apple": produce{
+      flavour: `It's a little sour and bitter, but mostly sweet, not at all salty, very juicy in general.`,
+      kind: "fruit",
+    },
+    "kale": produce{
+      flavour: `It boasts deep, earthy flavors that can range from rich & meaty to herbaceous and slightly bitter.`,
+      kind: "veggies",
+    },
+  }
+
+  for key, value := range basket {
+    fmt.Printf(`Name: %s\n Kind: %s\n Flavour: %s\n\n`, key, value.kind, value.flavour)
+  }
+}

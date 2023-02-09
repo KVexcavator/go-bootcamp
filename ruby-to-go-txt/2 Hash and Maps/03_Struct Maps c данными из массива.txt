@@ -1,0 +1,14 @@
+Карты структур с массивом значений
+При передаче значений valueType мможет быть массивом
+map[keyType][]valueType
+в Go [] надо явно определять впереди типа данных массива
+---
+basket := map[string][]string{
+  "fruits": []string{"apple", "mango", "avocado"},
+  "veggies": []string{"carrot", "cucumber", "kale"}
+}
+
+for key, value := range basket {
+  fmt.Printf(`Key %s -- Value %s \n`, key, value)
+}
+---
