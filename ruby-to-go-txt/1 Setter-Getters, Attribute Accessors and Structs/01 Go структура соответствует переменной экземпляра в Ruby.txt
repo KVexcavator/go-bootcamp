@@ -1,0 +1,53 @@
+
+В Go структура соответствует переменной экземпляра в Ruby:
+----
+class Dog
+	def initialize(breed)
+		@breed = breed
+	end
+	def kind
+		@breed
+	end
+end
+dog = Dog.new('Rottweiler')
+dog.kind
+----
+package main
+import "fmt"
+
+type dog struct {
+	breed string
+}
+
+func main() {
+	kind := dog{
+		breed: "Rottweiler",
+	}
+
+	fmt.Println(kind.breed)
+}
+------
+* с маленькой буквы доступень внутри пакета
+type Dog struct {
+	Breed string
+}
+с большой доступен снаружи
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

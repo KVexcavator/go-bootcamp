@@ -1,0 +1,32 @@
+Анонимные структуры
+мы можем объявить и инициализировать структуру на лету без явного объявления через тип
+анонимные структуры — хорошая и дешевая альтернатива пустому интерфейсу {}
+пример:
+package main
+import (
+	"fmt"
+)
+
+func main() {
+	Animal := struct {
+		Kind string
+		Diet string
+	}{"Dog", "Omnivorous"}
+	fmt.Println(Animal.Kind, "-", Animal.Diet)
+}
+---------
+Вы также можете создать структуру без имен полей, оставив только ее тип
+package main
+import (
+	"fmt"
+)
+
+func main() {
+	animals := struct {
+		int
+		string
+	}{1, "Dog"}
+	fmt.Println(animals.int)
+	fmt.Println(animals.string)
+}
+* один тип можно обьявить один раз

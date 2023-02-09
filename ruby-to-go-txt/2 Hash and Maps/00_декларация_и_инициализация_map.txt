@@ -1,0 +1,26 @@
+В Go mapы эквиваленты hash в Ruby
+=======================================
+map должен быть вначале продекларирован, потом проинициализирован.
+есть два способа инициализации:
+---------------------------------------
+использование make
+var variable map[keyType]valueType
+variable = make(map[keyType]valueType)
+variable[keyName] = Value
+println(variable[keyName]) // Value
+----
+package main
+import (
+	"fmt"
+)
+
+func main() {
+	var city map[string]string
+	city = make(map[string]string)
+	city["Netherlands"] = "Amsterdam"
+	fmt.Println(city["Netherlands"])
+}
+----------------------------------------
+Инициализация литеральным присвоением типа(одновремено декларировать и инициализировать)
+----
+----
