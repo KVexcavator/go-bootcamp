@@ -1,0 +1,10 @@
+Удаление значений из map
+
+просто используется delete
+---
+variable := map[keyType]valueType{
+  keyName: Value,
+}
+
+delete(variable, "keyName")
+---

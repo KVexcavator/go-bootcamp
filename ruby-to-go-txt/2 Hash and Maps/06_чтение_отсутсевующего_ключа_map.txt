@@ -1,0 +1,82 @@
+# отсутствующий ключ карты в Go просто вернет нулевое значение, нулевые значения не являются буквально нулевым целым числом, а являются значениями по умолчанию соответствующими каждому типу
+- false for booleans
+- 0 for integers
+- 0.0 for floats
+- "" for strings
+- nil for functions, interfaces, slices, pointers, channels, and maps
+---
+func main() {
+  var basket map[string]int
+  basket = make(map[string]int)
+
+  basket["apple"] = 1
+  basket["kale"] = 2
+
+  if exists := basket["cabbage"] != 0; exists == false {
+    fmt.Println("Item does not exists")
+  }
+}
+---
+или
+---
+func main() {
+  var basket map[string]int
+  basket = make(map[string]int)
+
+  basket["apple"] = 1
+  basket["kale"] = 2
+
+  produce, exists := basket["cabbage"]
+
+  if !exists {
+  fmt.Println("Item does not exists")
+  } else {
+    fmt.Printf("%+v exists", produce)
+  }
+}
+=====================================
+Если нужно создать более сложную карту, использующую структуру, то для инициализации точки доступа потребуется указатель, а возвращаемое значение по умолчанию будет равно нулю. nil будет значениями по умолчанию для функций, интерфейсов, срезов, указателей, каналов и карт.
+---
+package main
+import (
+  "fmt"
+)
+
+type produce struct {
+  flavour string
+  kind string
+}
+
+func main() {
+  var basket map[string]*produce
+  basket = make(map[string]*produce)
+
+  basket["apple"] = &produce{
+    flavour: `It's a little sour and bitter, but mostly sweet, not at all salty, very juicy in general.`,
+    kind: "fruit",
+  }
+
+  basket["kale"] = &produce{
+    flavour: `It boasts deep, earthy flavors that can range from rich and meaty to herbaceous and slightly bitter.`,
+    kind: "veggies",
+  }
+  var basket map[string]*produce
+  basket = make(map[string]*produce)
+
+  basket["apple"] = &produce{
+    flavour: `It's a little sour and bitter, but mostly sweet, not at all salty, very juicy in general.`,
+    kind: "fruit",
+  }
+
+  basket["kale"] = &produce{
+    flavour: `It boasts deep, earthy flavors that can range from rich and meaty to herbaceous and slightly bitter.`,
+    kind: "veggies",
+  }
+
+  if exists := basket["cabbage"] != nil; exists == false {
+    fmt.Println("Item does not exists")
+  }
+  if exists := basket["cabbage"] != nil; exists == false {
+    fmt.Println("Item does not exists")
+  }
+}

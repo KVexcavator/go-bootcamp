@@ -1,0 +1,39 @@
+Мы можем передать интерфейс с переменным числом аргументов в виде массива методу, принимающему аргумент с переменным числом аргументов, поставив тройные точки перед именем переменной.
+---
+package main
+import "fmt"
+
+func main() {
+  produce := []interface{}{
+    map[string]string{
+      "name": "apple",
+      "flavour": `It's a ...`,
+      "kind": "fruit",
+    },
+    map[string]string{
+      "name": "cucumber",
+      "flavour": `Slightly ...`,
+      "kind": "veggies",
+    },
+    "water", # raise
+  }
+
+  basket(produce...)
+}
+
+func basket(args ...interface{}) {
+  for _, item := range args {
+    item_type := fmt.Sprintf("%T", item)
+
+    if item_type == "map[string]string" {
+      produce := item.(map[string]string)
+
+      fmt.Printf(`
+        Name: %s\n Flavour: %s\n  Kind: %s\n\n`, produce["name"], produce["flavour"], produce["kind"])
+      } else {
+        fmt.Println(`You have passed a non-fruit or non-veggies argument`, item.(string))
+      }
+  }
+}
+-----
+* В Go fmt.Sprintf("%T", item) проверка типа, как Ruby метод is_a?, или js typeOf

@@ -1,0 +1,21 @@
+Пустой interface{} предоставляет возможность смешивать строки, целые числа или динамические значения через возвращаемые функции в виде ключей или значений в картах, переменных или аргументах функций.
+---
+package main
+import (
+  "fmt"
+  "github.com/google/uuid"
+)
+
+func main() {
+  variable := map[interface{}]string{}
+
+  variable[1] = "from an integer key"
+  variable["a"] = "from string key"Hash and Maps
+  uuid := uuid.New()
+  variable[uuid] = "from a UUID key"
+
+  fmt.Println(variable[1]) // from an integer key
+  fmt.Println(variable["a"]) // from string key
+  fmt.Println(variable[uuid]) // from a UUID key
+}
+---

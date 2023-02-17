@@ -1,0 +1,72 @@
+В Ruby есть ** оператор, позволяющий преобразовать аргумент в хеш
+--
+class Basket
+  def initialize
+    @basket = []
+  end
+  def add_item(kind, **item)
+    basket << item.merge(kind: kind)
+  end
+  def basket
+    @basket
+  end
+end
+
+basket = Basket.new
+basket.add_item(
+  'fruit',
+  name: 'apple',
+  flavour: "It's a ..."
+)
+====================================
+В Go используют вариативные функции для вместо **Ruby
+---
+package main
+import "fmt"
+
+func main() {
+  basket(map[string]string{
+    "name": "apple",
+    "flavour": `It's a ...`,
+  }, "fruit")
+}
+
+func basket(args ...interface{}) {
+  item := args[0].(map[string]string)
+  kind := args[1]
+  fmt.Printf(`Name: %s\n Flavour: %s\n Kind: %s\n`, item["name"], item["flavour"], kind)
+}
+---
+или с использованием получателя
+---
+package main
+import "fmt"
+
+type basket []map[string]string
+
+func main() {
+  basket := new(basket)
+
+  basket.add_item(map[string]string{
+    "name": "apple",
+    "flavour": `It's a ...`,
+  }, "fruit")
+
+  basket.print_items()
+}
+
+func (items *basket) add_item(args ...interface{}) {
+  item := args[0].(map[string]string)
+  item["kind"] = args[1].(string)
+  *items = append(*items, item)
+
+  fmt.Printf("Entry %s created!\n", item["name"])
+}
+
+func (items basket) print_items() {
+  fmt.Printf("There are %d item(s) in the basket.", len(items))
+
+  for _, item := range items {
+    fmt.Printf(`Name: %s\n Flavour: %s\n Kind: %s\n`, item["name"], item["flavour"], item["kind"])
+  }
+}
