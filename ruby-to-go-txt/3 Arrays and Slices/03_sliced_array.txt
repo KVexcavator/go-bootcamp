@@ -1,0 +1,68 @@
+Slice array - Нарезанный массив - срез
+=======================================
+более дешевый, потому что это только указатель на массив,
+позволяет изменить размер массива, с append
+---
+slicedArray1 := make([]string, 2)
+
+var slicedArray2 []string
+
+slicedArray3 := []string{}
+slicedArray4 := []string{"foo", "bar"}
+=======================================
+Срез является ссылочным типом, что означает, что когда вы передаете или присваиваете значение из среза, будет возвращена только его ссылка, а не новая копия, поэтому это намного дешевле и эффективнее.
+---
+slicedArray1 := make([]string, 4)
+
+var slicedArray2 []string
+
+slicedArray3 := []string{}
+slicedArray4 := []string{"foo", "bar"}
+
+slicedArray1[0] = "foo"
+slicedArray2 = slicedArray1
+
+slicedArray2[1] = "bar"
+slicedArray3 = slicedArray2
+
+slicedArray3[2] = "baz"
+slicedArray4 = slicedArray3
+
+slicedArray4[3] = "quux"
+
+fmt.Println(slicedArray1) // [foo bar baz quux]
+fmt.Println(slicedArray2) // [foo bar baz quux]
+fmt.Println(slicedArray3) // [foo bar baz quux]
+fmt.Println(slicedArray4) // [foo bar baz quux]
+========================================
+Capacity - вместимость
+третий параметр при создании среза
+---
+make(type, length, capacity)
+то же самое
+array := make([]string, 2, 2)
+---
+если его не указывать, он автоматически берет второй параметр
+Это оставшаяся емкость нового массива, инициализированного после нарезки
+В примере все корзины используют один и тот же адресс памяти:
+---
+basket1 := make([]string, 1, 3)
+basket1[0] = "apple"
+// basket1[1] = "some" => error
+
+basket2 := basket1[:2]
+basket2[1] = "mango"
+
+basket3 := basket2[:3]
+basket3[2] = "banana"
+
+fmt.Println(basket3) // [apple mango banana]
+
+basket3[0] = "banana"
+basket3[1] = "banana"
+basket3[2] = "banana"
+
+fmt.Println(basket3) // [banana banana banana]
+fmt.Println(basket2) // [banana banana]
+fmt.Println(basket1) // [banana]
+---
