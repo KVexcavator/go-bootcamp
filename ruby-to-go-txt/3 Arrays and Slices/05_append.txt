@@ -1,0 +1,22 @@
+невозможно выйти за рамки capacity слайса присваиванием
+---
+array := make([]string, 1, 2)
+array[0] = "foo" // [foo]
+
+array2 := array[:2]
+array2[1] = "bar"// [foo bar]
+
+array3 := array[:3] // error
+---
+для этого используется append
+---
+array := make([]string, 1, 2)
+array[0] = "foo" // [foo]
+
+array2 := array[:2]
+array2[1] = "bar"  // [foo bar]
+
+array3 := array[:2]
+array3 = append(array3, "baz") a// [foo bar baz]
+---
+если append к массиву, который недостаточно велик для хранения новых значений, массив будет перераспределен, а старые значения будут потеряны

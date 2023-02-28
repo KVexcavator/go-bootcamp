@@ -1,0 +1,19 @@
+если надо скопировать значения старого массива в новую переменную массива и изменить ее, не затрагивая значения старого массива, можно использовать фиксированное назначение массива или использовать комбинацию make и copy
+---
+basket1 := make([]string, 1, 3)
+basket1[0] = "apple"
+
+basket2 := basket1[:2]
+basket2[1] = "mango"
+
+basket3 := make([]string, cap(basket1))
+
+copy(basket3, basket2)
+
+basket3[1] = "pineapple"
+basket3[2] = "kiwi"
+
+fmt.Println(basket3) // [apple pineapple kiwi]
+fmt.Println(basket2) // [apple mango]
+fmt.Println(basket1) // [apple]
+---

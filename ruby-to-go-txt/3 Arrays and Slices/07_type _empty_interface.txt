@@ -1,0 +1,11 @@
+Применение пустого интерфейса, как типа данных для массива
+Обычно исползуют sting, integer и пр. все данные массива дожны быть одного типа
+---
+var array [3]string
+array = [3]string{"string", 1, uuid.New()} // Error
+---
+если нужно примешать данные другого типа
+---
+var array []interface{}
+array = []interface{}{"apple", 1, uuid.New()}
+---

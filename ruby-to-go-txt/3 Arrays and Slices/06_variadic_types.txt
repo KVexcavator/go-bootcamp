@@ -1,0 +1,22 @@
+Массивы с переменными типами
+=====================================
+в Ruby существует возможность предавать неопределенное количество аргументов
+def basket(*fruits) ...
+-------------------------------------
+В Go такое делается с ...
+---
+func basket(fruits ...string) {
+  for _, fruit := range fruits {
+    fmt.Printf("%s is in the basket\n", fruit)
+  }
+}
+вызвать с аргументами
+func main() {
+  basket("Apple", "Mango", "Orange", "Banana")
+}
+или передать и развернуть массив
+func main() {
+  fruits := []string{"Apple", "Mango", "Orange", "Banana"}
+  basket(fruits...)
+}
+---
